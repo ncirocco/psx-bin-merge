@@ -1,7 +1,6 @@
 package binmerge
 
 import (
-	"path"
 	"path/filepath"
 )
 
@@ -12,8 +11,8 @@ func Merge(cuePath string, destination string) error {
 		return err
 	}
 
-	cueDir := path.Dir(cuePath)
-	cueName := path.Base(cuePath)[0 : len(path.Base(cuePath))-len(filepath.Ext(path.Base(cuePath)))]
+	cueDir := filepath.Dir(cuePath)
+	cueName := filepath.Base(cuePath)[0 : len(filepath.Base(cuePath))-len(filepath.Ext(filepath.Base(cuePath)))]
 	destination = filepath.Join(destination, cueName)
 
 	err = createCuesheet(
