@@ -102,9 +102,8 @@ func createCuesheet(name string, basePath string, cueMap []cueBinFile, destinati
 
 	_ = os.MkdirAll(destination, os.ModePerm)
 
-	a := filepath.Join(destination, name+".cue")
-	fmt.Println(a)
-	f, err := os.Create(a)
+	path := filepath.Join(destination, name+".cue")
+	f, err := os.Create(path)
 	if err != nil {
 		return err
 	}
